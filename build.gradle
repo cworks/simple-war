@@ -1,0 +1,30 @@
+apply plugin: 'war'
+
+description "A Simple War File"
+
+group = "net-cworks"
+
+compileJava {
+    sourceCompatibility=1.7
+    targetCompatibility=1.7
+}
+
+compileTestJava {
+    sourceCompatibility=1.7
+    targetCompatibility=1.7
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile("net-cworks:json:1.0")
+    providedCompile("javax.servlet:servlet-api:2.5")
+    testCompile("junit:junit:4.11")
+}
+
+task wrapper(type: Wrapper, description: 'Generates the gradle wrapper.') {
+    gradleVersion = '1.11'
+}
